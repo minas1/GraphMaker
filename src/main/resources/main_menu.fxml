@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+   <children>
+      <Button layoutX="80.0" layoutY="139.0" mnemonicParsing="false" onAction="#importData" style="-fx-font-size: 25; -fx-text-fill: white; -fx-background-color: #337ab7; -fx-background-radius: 7.5;" text="Import" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
+      <Button fx:id="_exportButton" disable="true" layoutX="191.0" layoutY="698.0" mnemonicParsing="false" onAction="#export" style="-fx-font-size: 25; -fx-text-fill: white; -fx-background-color: #5cb85c; -fx-background-radius: 7.5;" text="Export" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="150.0" />
+      <TextField fx:id="_titleTextField" layoutX="59.0" layoutY="62.0" prefHeight="26.0" prefWidth="125.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="45.0" />
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="21.0" layoutY="63.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" style="-fx-font-weight: bold;" text="Title" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="45.0" />
+      <Pane fx:id="_chartPane" layoutX="133.0" layoutY="58.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0" />
+      <ListView fx:id="_seriesProperties" layoutX="636.0" layoutY="494.0" prefHeight="120.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="74.0" layoutY="255.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" style="-fx-font-weight: bold;" text="X axis" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="136.0" layoutY="283.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" style="-fx-font-weight: bold;" text="Y axis" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="225.0" />
+      <TextField fx:id="_xAxisLabel" layoutX="83.0" layoutY="104.0" prefHeight="26.0" prefWidth="87.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="105.0" />
+      <TextField fx:id="_yAxisLabel" layoutX="138.0" layoutY="327.0" prefHeight="26.0" prefWidth="87.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="250.0" />
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="85.0" layoutY="328.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" text="Label" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="250.0" />
+      <Label fx:id="_xAxisLbl" alignment="CENTER" contentDisplay="TOP" layoutX="378.0" layoutY="585.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" text="Label" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="105.0" />
+      <Label fx:id="_xAxisLowerBoundLabel" alignment="CENTER" contentDisplay="TOP" disable="true" layoutX="145.0" layoutY="148.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" text="Min" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="160.0" />
+      <TextField fx:id="_xAxisLowerBound" disable="true" layoutX="31.0" layoutY="200.0" prefHeight="26.0" prefWidth="87.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="160.0" />
+      <Label fx:id="_xAxisUpperBoundLabel" alignment="CENTER" contentDisplay="TOP" disable="true" layoutX="139.0" layoutY="225.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="31.0" text="Max" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="190.0" />
+      <TextField fx:id="_xAxisUpperBound" disable="true" layoutX="31.0" layoutY="230.0" prefHeight="26.0" prefWidth="87.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="190.0" />
+      <Label fx:id="_yAxisLowerBoundLabel" alignment="CENTER" contentDisplay="TOP" disable="true" layoutX="29.0" layoutY="364.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" text="Min" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="310.0" />
+      <Label fx:id="_yAxisUpperBoundLabel" alignment="CENTER" contentDisplay="TOP" disable="true" layoutX="32.0" layoutY="396.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" text="Max" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="340.0" />
+      <TextField fx:id="_yAxisLowerBound" disable="true" layoutX="138.0" layoutY="357.0" prefHeight="26.0" prefWidth="87.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="310.0" />
+      <TextField fx:id="_yAxisUpperBound" disable="true" layoutX="138.0" layoutY="387.0" prefHeight="26.0" prefWidth="87.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="340.0" />
+      <CheckBox fx:id="_xAxisAutoBounds" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="33.0" layoutY="263.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" selected="true" text="Auto" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="135.0" />
+      <CheckBox fx:id="_yAxisAutoBounds" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="140.0" layoutY="420.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" selected="true" text="Auto" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="280.0" />
+      <ComboBox fx:id="_symbolType" layoutX="182.0" layoutY="585.0" prefHeight="26.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="380.0" />
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="73.0" layoutY="585.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" style="-fx-font-weight: bold;" text="Symbol&#10;type" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="375.0" />
+      <MenuBar layoutX="98.0" layoutY="21.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="28.0" layoutY="135.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" text="Range" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="135.0" />
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="57.0" layoutY="297.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" text="Range" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="280.0" />
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="83.0" layoutY="595.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" style="-fx-font-weight: bold;" text="Font size" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="430.0" />
+      <TextField fx:id="_fontSize" layoutX="101.0" layoutY="427.0" prefHeight="26.0" prefWidth="87.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="430.0" />
+   </children>
+</AnchorPane>

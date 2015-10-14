@@ -45,5 +45,6 @@
       <Label alignment="CENTER" contentDisplay="TOP" layoutX="57.0" layoutY="297.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" text="Range" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="280.0" />
       <Label alignment="CENTER" contentDisplay="TOP" layoutX="83.0" layoutY="595.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" style="-fx-font-weight: bold;" text="Font size" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="430.0" />
       <TextField fx:id="_fontSize" layoutX="101.0" layoutY="427.0" prefHeight="26.0" prefWidth="87.0" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="430.0" />
+      <CheckBox fx:id="_showLegend" alignment="CENTER" contentDisplay="CENTER" layoutX="114.0" layoutY="623.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="25.0" selected="true" text="Show legend" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="465.0" />
    </children>
 </AnchorPane>

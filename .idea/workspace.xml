@@ -6,7 +6,20 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4704337-3bdf-4932-b11e-7c237b75a36d" name="Default" comment="" />
+    <list default="true" id="f4704337-3bdf-4932-b11e-7c237b75a36d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GraphMaker.iml" afterPath="$PROJECT_DIR$/GraphMaker.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/main_menu.fxml" afterPath="$PROJECT_DIR$/src/main/resources/main_menu.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="GraphMaker.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -39,10 +52,17 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6161137">
-              <caret line="343" column="36" selection-start-line="343" selection-start-column="36" selection-end-line="343" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.4265403">
+              <caret line="120" column="20" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#Controller#0" expanded="false" />
+                <element signature="method#importData#0;class#Controller#0" expanded="false" />
+                <element signature="method#setAxisLowerBound#0;class#Controller#0" expanded="false" />
+                <element signature="method#setAxisUpperBound#0;class#Controller#0" expanded="false" />
+                <element signature="method#enableAutoRanging#0;class#Controller#0" expanded="false" />
+                <element signature="method#disableAutoRanging#0;class#Controller#0" expanded="false" />
+                <element signature="e#10101#10194#0" expanded="false" />
+                <element signature="method#about#0;class#Controller#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -77,6 +97,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -186,7 +209,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="2889226519490" />
+        <entry key="$PROJECT_DIR$" value="2889296233760" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -356,11 +379,11 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="59" />
-    <option name="y" value="-4" />
+    <option name="y" value="24" />
     <option name="width" value="1307" />
-    <option name="height" value="772" />
+    <option name="height" value="744" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -383,8 +406,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -559,6 +582,13 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="GenerateAntBuildDialog.generateSingleFile" value="false" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.inclineRuntiemClasspath" value="false" />
+    <property name="GenerateAntBuildDialog.generateIdeaHomeProperty" value="false" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="graphmaker" />
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -803,7 +833,7 @@
     </recent_temporary>
   </component>
   <component name="SbtLocalSettings">
-    <option name="lastUpdateTimestamp" value="1444766961663" />
+    <option name="lastUpdateTimestamp" value="1444836617431" />
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$/../Back to the Future/back-to-the-future-server" value="1437404605632" />
@@ -827,7 +857,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="-4" width="1307" height="772" extended-state="6" />
+    <frame x="59" y="24" width="1307" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -852,7 +882,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="159" y="180" width="1107" height="572" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="159" y="208" width="1107" height="572" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -882,9 +912,49 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="337" column="0" selection-start-line="337" selection-start-column="0" selection-end-line="337" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#Controller#0" expanded="false" />
+            <element signature="method#importData#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisLowerBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisUpperBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#enableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="method#disableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="e#10101#10194#0" expanded="false" />
+            <element signature="method#about#0;class#Controller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Controller#0" expanded="false" />
+            <element signature="method#importData#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisLowerBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisUpperBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#enableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="method#disableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="e#10101#10194#0" expanded="false" />
+            <element signature="method#about#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -910,7 +980,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="183" column="67" selection-start-line="183" selection-start-column="67" selection-end-line="183" selection-end-column="67" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Controller#0" expanded="false" />
+            <element signature="method#importData#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisLowerBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisUpperBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#enableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="method#disableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="e#10101#10194#0" expanded="false" />
+            <element signature="method#about#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -928,7 +1005,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Controller#0" expanded="false" />
+            <element signature="method#importData#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisLowerBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisUpperBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#enableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="method#disableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="e#10101#10194#0" expanded="false" />
+            <element signature="method#about#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -946,33 +1030,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="34" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Controller#0" expanded="false" />
+            <element signature="method#importData#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisLowerBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisUpperBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#enableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="method#disableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="e#10101#10194#0" expanded="false" />
+            <element signature="method#about#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -998,7 +1063,47 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Controller#0" expanded="false" />
+            <element signature="method#importData#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisLowerBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisUpperBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#enableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="method#disableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="e#10101#10194#0" expanded="false" />
+            <element signature="method#about#0;class#Controller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="34" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#Controller#0" expanded="false" />
+            <element signature="method#importData#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisLowerBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisUpperBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#enableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="method#disableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="e#10101#10194#0" expanded="false" />
+            <element signature="method#about#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1024,7 +1129,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Controller#0" expanded="false" />
+            <element signature="method#importData#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisLowerBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisUpperBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#enableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="method#disableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="e#10101#10194#0" expanded="false" />
+            <element signature="method#about#0;class#Controller#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1106,7 +1218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5093834">
           <caret line="100" column="59" selection-start-line="100" selection-start-column="59" selection-end-line="100" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1186,14 +1297,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/com/sun/corba/se/spi/ior/Writeable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.31990522">
@@ -1217,21 +1320,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4265403">
+          <caret line="120" column="20" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
+          <folding>
+            <element signature="docComment;class#Controller#0" expanded="false" />
+            <element signature="method#importData#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisLowerBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#setAxisUpperBound#0;class#Controller#0" expanded="false" />
+            <element signature="method#enableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="method#disableAutoRanging#0;class#Controller#0" expanded="false" />
+            <element signature="e#10101#10194#0" expanded="false" />
+            <element signature="method#about#0;class#Controller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6161137">
-          <caret line="343" column="36" selection-start-line="343" selection-start-column="36" selection-end-line="343" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

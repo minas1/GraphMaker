@@ -141,6 +141,8 @@ public class Controller implements Initializable {
         _yAxisLowerBoundLabel.disableProperty().bind(_yAxisAutoBounds.selectedProperty());
         _yAxisUpperBoundLabel.disableProperty().bind(_yAxisAutoBounds.selectedProperty());
 
+        _chart.legendVisibleProperty().bindBidirectional(_showLegend.selectedProperty());
+
         BiConsumer<NumberAxis, TextField> bindLowerBound = (axis, textField) -> {
 
             textField.textProperty().addListener((observable, oldValue, newValue) -> setAxisLowerBound(axis, newValue));
@@ -216,7 +218,10 @@ public class Controller implements Initializable {
             fontSize = DEFAULT_FONT_SIZE;
         }
 
+        chart.getXAxis().setStyle("-fx-font-size: "+ fontSize + " pt;");
         chart.getXAxis().setTickLabelFont(Font.font(fontSize));
+
+        chart.getYAxis().setStyle("-fx-font-size: "+ fontSize + " pt;");
         chart.getYAxis().setTickLabelFont(Font.font(fontSize));
     }
 
@@ -311,6 +316,8 @@ public class Controller implements Initializable {
         _exportButton.setDisable(false);
         setSymbolType(_chart, _symbolType.getValue());
         setFontSize(_chart, _fontSize.getText());
+
+        _chart.setLegendVisible(_showLegend.isSelected());
     }
 
     @FXML
@@ -389,8 +396,9 @@ public class Controller implements Initializable {
 
     @FXML private ComboBox<SymbolType> _symbolType;
 
-    private static final int DEFAULT_FONT_SIZE = 12;
+    private static final int DEFAULT_FONT_SIZE = 18;
     @FXML private TextField _fontSize;
 
     @FXML private Button _exportButton;
+    @FXML private CheckBox _showLegend;
 }

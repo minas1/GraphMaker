@@ -1,6 +1,6 @@
 group 'greenbits'
 //version '1.0-SNAPSHOT'
-version '0.1.0'
+version '0.1.1'
 
 apply plugin: 'java'
 
@@ -23,6 +23,12 @@ jar {
     }
     manifest {
         attributes("Main-Class": "Main" )
+    }
+    doLast {
+        copy {
+            from "${buildDir}/libs/GraphMaker-${version}.jar"
+            into "dist"
+        }
     }
 }
 

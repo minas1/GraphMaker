@@ -19,12 +19,13 @@ Graph maker can import text files with 2D coordinates, as comma separated values
 ##### Example #1 (Single line)
 Let's say we want a graph with the values *(0, 0)*, *(1, 1)*, *(2, 4)* and *(3, 9)*.  
 Open your favourite spreadsheet application (Calc, Excel can be used):
-|| A | B |
-|-| - | :-:|
-|**1**| 0 | 0 |
-|**2**| 1 | 1 |
-|**3**| 2 | 4 |
-|**4**| 3 | 9 |
+
+|   | A  | B |
+| :---: |:-:| :-:|
+| **1** | 0 | 0 |
+| **2** | 1 | 1 |
+| **3** | 2 | 4 |
+| **4** | 3 | 9 |
 
 The first column has the values of the X axis whereas the second has the values of the Y axis.
 
@@ -37,11 +38,12 @@ Let's say we want the following lines:
 **Line B:** *(1, 2)*, *(1, 3)*
 
 How we do this? The solution is not that complex:  
-|| A | B | C |
-|-| - | :-:| -:|
-|**1**| 0 | 0 | *empty cell* |
-|**2**| 1 | 1 | 2 |
-|**3**| 1|*empty cell*|3|
+
+|       | A | B | C |
+|  :-:  |:-:|:-: |:-: |
+| **1** | 0 | 0 | *empty cell* |
+| **2** | 1 | 1 | 2 |
+| **3** | 1 | *empty cell* | 3 |
 
 The values of the columns **A** and **B** define the **first line**.  
 The values of the columns **A** and **C** define the **second line**.

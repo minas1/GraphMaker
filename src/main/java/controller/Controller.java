@@ -74,7 +74,8 @@ public class Controller implements Initializable {
 
                     xAxisValues.add(values[0]);
                     for (int i = 1; i < values.length; ++i)
-                        yAxisValues.add(values[i]);
+                        if (!values[i].equals(""))
+                            yAxisValues.add(values[i]);
                 }
 
                 _xAxisType = getBestCommonType(xAxisValues);
@@ -277,12 +278,15 @@ public class Controller implements Initializable {
             for(int i = 1; i < line.length; ++i) {
 
                 final int j = i;
-                seriesById.compute(i, (k, v) -> {
 
-                    v = v == null ? new XYChart.Series() : v;
-                    v.getData().add(new XYChart.Data(parse(first, _xAxisType), parse(line[j], _yAxisType)));
-                    return v;
-                });
+                if (!line[j].equals("")) {
+                    seriesById.compute(i, (k, v) -> {
+
+                        v = v == null ? new XYChart.Series() : v;
+                        v.getData().add(new XYChart.Data(parse(first, _xAxisType), parse(line[j], _yAxisType)));
+                        return v;
+                    });
+                }
             }
         }
 

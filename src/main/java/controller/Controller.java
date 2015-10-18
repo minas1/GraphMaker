@@ -30,6 +30,7 @@ import static utils.Utils.*;
 
 /*
  * CSS Styles for charts: http://docs.oracle.com/javafx/2/charts/css-styles.htm
+ * TODO Set the background color to white transparent
  */
 
 /**
@@ -118,8 +119,10 @@ public class Controller implements Initializable {
 
             if (newValue)
                 enableAutoRanging(axis);
-            else
-                disableAutoRanging(axis, _xAxisLowerBound.getText(),_xAxisUpperBound.getText());
+            else {
+                disableAutoRanging(axis, _xAxisLowerBound.getText(), _xAxisUpperBound.getText());
+                setAxisTickUnit(axis, _xAxisTickUnit.getText());
+            }
         });
 
         _yAxisAutoBounds.selectedProperty().addListener((observable, oldValue, newValue) -> {
@@ -128,19 +131,25 @@ public class Controller implements Initializable {
 
             if (newValue)
                 enableAutoRanging(axis);
-            else
-                disableAutoRanging(axis, _yAxisLowerBound.getText(),_yAxisUpperBound.getText());
+            else {
+                disableAutoRanging(axis, _yAxisLowerBound.getText(), _yAxisUpperBound.getText());
+                setAxisTickUnit(axis, _yAxisTickUnit.getText());
+            }
         });
 
         _xAxisLowerBound.disableProperty().bindBidirectional(_xAxisAutoBounds.selectedProperty());
         _xAxisUpperBound.disableProperty().bindBidirectional(_xAxisAutoBounds.selectedProperty());
         _yAxisLowerBound.disableProperty().bindBidirectional(_yAxisAutoBounds.selectedProperty());
         _yAxisUpperBound.disableProperty().bindBidirectional(_yAxisAutoBounds.selectedProperty());
+        _xAxisTickUnit.disableProperty().bind(_xAxisAutoBounds.selectedProperty());
+        _yAxisTickUnit.disableProperty().bind(_yAxisAutoBounds.selectedProperty());
 
         _xAxisLowerBoundLabel.disableProperty().bind(_xAxisAutoBounds.selectedProperty());
         _xAxisUpperBoundLabel.disableProperty().bind(_xAxisAutoBounds.selectedProperty());
         _yAxisLowerBoundLabel.disableProperty().bind(_yAxisAutoBounds.selectedProperty());
         _yAxisUpperBoundLabel.disableProperty().bind(_yAxisAutoBounds.selectedProperty());
+        _xAxisTickUnitLabel.disableProperty().bind(_xAxisAutoBounds.selectedProperty());
+        _yAxisTickUnitLabel.disableProperty().bind(_yAxisAutoBounds.selectedProperty());
 
         _chart.legendVisibleProperty().bindBidirectional(_showLegend.selectedProperty());
 
@@ -154,11 +163,18 @@ public class Controller implements Initializable {
             textField.textProperty().addListener((observable, oldValue, newValue) -> setAxisUpperBound(axis, newValue));
         };
 
+        BiConsumer<NumberAxis, TextField> setStep = (axis, textField) -> {
+
+
+            textField.textProperty().addListener((observable, oldValue, newValue) -> setAxisTickUnit(axis, newValue));
+        };
+
         if (_xAxisType.equals(Number.class)) {
 
             final NumberAxis axis = (NumberAxis) _chart.getXAxis();
             bindLowerBound.accept(axis, _xAxisLowerBound);
             bindUpperBound.accept(axis, _xAxisUpperBound);
+            setStep.accept(axis, _xAxisTickUnit);
         }
         // else { TODO add the other case as well (categoryAxis)
 
@@ -167,6 +183,7 @@ public class Controller implements Initializable {
             final NumberAxis axis = (NumberAxis) _chart.getYAxis();
             bindLowerBound.accept(axis, _yAxisLowerBound);
             bindUpperBound.accept(axis, _yAxisUpperBound);
+            setStep.accept(axis, _yAxisTickUnit);
         }
     }
 
@@ -231,7 +248,6 @@ public class Controller implements Initializable {
         try {
             double val = Double.parseDouble(str);
             axis.setLowerBound(val);
-
         }
         catch (NumberFormatException ex) {
             axis.setLowerBound(0.0);
@@ -246,6 +262,17 @@ public class Controller implements Initializable {
         }
         catch (NumberFormatException ex) {
             axis.setUpperBound(0.0);
+        }
+    }
+
+    private static void setAxisTickUnit(NumberAxis axis, String str) {
+
+        try {
+            double val = Double.parseDouble(str);
+            axis.setTickUnit(val);
+        }
+        catch (NumberFormatException ex) {
+            axis.setTickUnit(0.0);
         }
     }
 
@@ -402,6 +429,12 @@ public class Controller implements Initializable {
 
     private static final int DEFAULT_FONT_SIZE = 18;
     @FXML private TextField _fontSize;
+
+
+    @FXML private TextField _xAxisTickUnit;
+    @FXML private Label _xAxisTickUnitLabel;
+    @FXML private TextField _yAxisTickUnit;
+    @FXML private Label _yAxisTickUnitLabel;
 
     @FXML private Button _exportButton;
     @FXML private CheckBox _showLegend;

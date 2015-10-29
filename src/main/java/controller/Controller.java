@@ -185,6 +185,7 @@ public class Controller implements Initializable {
             bindUpperBound.accept(axis, _yAxisUpperBound);
             setStep.accept(axis, _yAxisTickUnit);
         }
+
     }
 
     private static void setSymbolType(LineChart chart, SymbolType type) {

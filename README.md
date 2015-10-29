@@ -49,3 +49,8 @@ The values of the columns **A** and **B** define the **first line**.
 The values of the columns **A** and **C** define the **second line**.
 
 Save the file in .csv format and import into *Graph Maker*.
+
+## Changelog
+##### v0.1.4
+* The default background color of the exported image is now white (previously light gray)
+* The default symbol type is now *no symbol* instead of *filled circle*

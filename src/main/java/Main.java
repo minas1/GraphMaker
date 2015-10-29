@@ -10,7 +10,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
-    private static final String VERSION = "v0.1.0";
+    private static final String VERSION = "v0.1.4";
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -18,6 +18,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("main_menu.fxml"));
 
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("style.css");
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("Graph Maker " + VERSION);

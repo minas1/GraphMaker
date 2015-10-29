@@ -5,6 +5,11 @@ package model;
  */
 public enum SymbolType {
 
+    NO_SYMBOL {
+        @Override
+        public String toString() { return "No symbol"; }
+    },
+
     FILLED_CIRCLE {
         @Override
         public String toString() { return "Filled circle"; }
@@ -13,10 +18,5 @@ public enum SymbolType {
     EMPTY_CIRCLE {
         @Override
         public String toString() { return "Empty circle"; }
-    },
-
-    NO_SYMBOL {
-        @Override
-        public String toString() { return "No symbol"; }
     }
 }

@@ -5,6 +5,8 @@ Simple graphical application for generating graphs.
 Minas Mina  
 Contact: [minasm1990 [at] gmail.com](mailto:minasm1990@gmail.com)  
 
+![Alt text](/screenshots/f(x)=x^2.png?raw=true "Example plot")
+
 ### What can it do?
  - Import text files which contain 2D plot data
  - Generate a graph, which can be exported as an image

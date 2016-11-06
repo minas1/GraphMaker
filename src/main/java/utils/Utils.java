@@ -32,7 +32,7 @@ public final class Utils {
         for(String str : values) {
 
             if (tryParseNumber(str))
-                currentType = Number.class;
+                currentType = Double.class;
             else
                 return String.class;
         }
@@ -51,35 +51,20 @@ public final class Utils {
         }
     }
 
-    public static void writeln(Object... args) {
-
-        for(Object arg : args)
-            System.out.print(arg);
-        System.out.println();
-    }
-
-    public static LineChart createLineChart(Class<?> xAxisType, Class<?> yAxisType) {
+    public static LineChart<?, Double> createLineChart(Class<?> xAxisType) {
 
         Axis xAxis = getAxisBasedOnType(xAxisType);
-        Axis yAxis = getAxisBasedOnType(yAxisType);
+        Axis yAxis = new NumberAxis();
 
         return new LineChart<>(xAxis, yAxis);
     }
 
     private static Axis getAxisBasedOnType(Class<?> type) {
 
-        if (type.equals(Number.class))
+        if (type.equals(Double.class))
             return new NumberAxis();
         else
             return new CategoryAxis();
-    }
-
-    public static Object parse(String str, Class<?> clazz) {
-
-        if (clazz.equals(Number.class))
-            return Double.parseDouble(str);
-        else
-            return str;
     }
 
     private Utils() {}

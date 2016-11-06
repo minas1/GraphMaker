@@ -17,13 +17,16 @@ import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import model.SymbolType;
 import utils.Colors;
+import view.LineChartDoubleDouble;
 
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 import java.util.function.BiConsumer;
 
 import static utils.Utils.*;
@@ -37,6 +40,8 @@ import static utils.Utils.*;
  * Created by minas on 10/10/2015.
  */
 public class Controller implements Initializable {
+
+    private static final int DEFAULT_FONT_SIZE = 18;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -52,6 +57,16 @@ public class Controller implements Initializable {
         _fontSize.textProperty().addListener((observable, oldValue, newValue) -> setFontSize(_chart, newValue));
     }
 
+    private static List<String[]> readCsvFile(File file) throws IOException {
+
+        try (CSVReader reader = new CSVReader(new FileReader(file))) {
+
+            return reader.readAll();
+        }
+    }
+
+
+
     @FXML
     public void importData() {
 
@@ -61,46 +76,67 @@ public class Controller implements Initializable {
         File file = fileChooser.showOpenDialog(getStage(_chartPane));
 
         if (file != null) {
-            try (CSVReader reader = new CSVReader(new FileReader(file))) {
 
-                List<String[]> entries = reader.readAll();
+            try {
+                List<String[]> entries = readCsvFile(file);
 
                 List<String> xAxisValues = new ArrayList<>();
-                List<String> yAxisValues = new ArrayList<>();
 
                 for (String[] values : entries) {
 
                     if (values.length == 0)
                         continue;
-
                     xAxisValues.add(values[0]);
-                    for (int i = 1; i < values.length; ++i)
-                        if (!values[i].equals(""))
-                            yAxisValues.add(values[i]);
                 }
 
-                _xAxisType = getBestCommonType(xAxisValues);
-                _yAxisType = getBestCommonType(yAxisValues);
-                _chart = createLineChart(_xAxisType, _yAxisType);
-                setupChart();
+                Class<?> xAxisType = getBestCommonType(xAxisValues);
+
+                _chart = createLineChart(xAxisType);
+
+                if (xAxisType.equals(Double.class))
+                    _chartHelper = new LineChartDoubleDouble((uncheckedCast(_chart)));
+                else
+                    throw new RuntimeException("Unhandled case " + xAxisType);
+
+                setupChart(xAxisType);
 
                 _chartPane.getChildren().clear();
                 _seriesProperties.getItems().clear();
 
                 _chartPane.getChildren().add(_chart);
 
-                populateChart(entries);
+                _chartHelper.importData(entries);
+                _chartHelper.createSeriesPropertyLabels(_seriesProperties);
+
+                final NumberAxis xAxis = (NumberAxis) _chart.getXAxis();
+                if (_xAxisAutoBounds.isSelected())
+                    enableAutoRanging(xAxis);
+                else
+                    disableAutoRanging(xAxis, _xAxisLowerBound.getText(), _xAxisUpperBound.getText());
+
+                final NumberAxis yAxis = uncheckedCast(_chart.getYAxis());
+                if (_yAxisAutoBounds.isSelected())
+                    enableAutoRanging(yAxis);
+                else
+                    disableAutoRanging(yAxis, _yAxisLowerBound.getText(), _yAxisUpperBound.getText());
+
+                _exportButton.setDisable(false);
+                setSymbolType(_chart, _symbolType.getValue());
+                setFontSize(_chart, _fontSize.getText());
+
+                _chart.setLegendVisible(_showLegend.isSelected());
             }
             catch (Throwable e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error while importing data");
                 alert.setHeaderText(e.getMessage());
                 alert.showAndWait();
+                throw new RuntimeException(e);
             }
         }
     }
 
-    private void setupChart() {
+    private void setupChart(Class<?> xAxisType) {
 
         // keep the size equal to the parent's
         _chart.minWidthProperty().bind(_chartPane.widthProperty());
@@ -127,7 +163,7 @@ public class Controller implements Initializable {
 
         _yAxisAutoBounds.selectedProperty().addListener((observable, oldValue, newValue) -> {
 
-            NumberAxis axis = (NumberAxis) _chart.getYAxis();
+            NumberAxis axis = uncheckedCast(_chart.getYAxis());
 
             if (newValue)
                 enableAutoRanging(axis);
@@ -169,7 +205,7 @@ public class Controller implements Initializable {
             textField.textProperty().addListener((observable, oldValue, newValue) -> setAxisTickUnit(axis, newValue));
         };
 
-        if (_xAxisType.equals(Number.class)) {
+        if (xAxisType.equals(Double.class)) {
 
             final NumberAxis axis = (NumberAxis) _chart.getXAxis();
             bindLowerBound.accept(axis, _xAxisLowerBound);
@@ -178,14 +214,12 @@ public class Controller implements Initializable {
         }
         // else { TODO add the other case as well (categoryAxis)
 
-        if (_yAxisType.equals(Number.class)) {
 
-            final NumberAxis axis = (NumberAxis) _chart.getYAxis();
-            bindLowerBound.accept(axis, _yAxisLowerBound);
-            bindUpperBound.accept(axis, _yAxisUpperBound);
-            setStep.accept(axis, _yAxisTickUnit);
-        }
-
+        // Y axis
+        final NumberAxis axis = uncheckedCast(_chart.getYAxis());
+        bindLowerBound.accept(axis, _yAxisLowerBound);
+        bindUpperBound.accept(axis, _yAxisUpperBound);
+        setStep.accept(axis, _yAxisTickUnit);
     }
 
     private static void setSymbolType(LineChart chart, SymbolType type) {
@@ -244,10 +278,10 @@ public class Controller implements Initializable {
         chart.getYAxis().setTickLabelFont(Font.font(fontSize));
     }
 
-    private static void setAxisLowerBound(NumberAxis axis, String str) {
+    private static void setAxisLowerBound(NumberAxis axis, String value) {
 
         try {
-            double val = Double.parseDouble(str);
+            double val = Double.parseDouble(value);
             axis.setLowerBound(val);
         }
         catch (NumberFormatException ex) {
@@ -255,10 +289,10 @@ public class Controller implements Initializable {
         }
     }
 
-    private static void setAxisUpperBound(NumberAxis axis, String str) {
+    private static void setAxisUpperBound(NumberAxis axis, String value) {
 
         try {
-            double val = Double.parseDouble(str);
+            double val = Double.parseDouble(value);
             axis.setUpperBound(val);
         }
         catch (NumberFormatException ex) {
@@ -266,10 +300,10 @@ public class Controller implements Initializable {
         }
     }
 
-    private static void setAxisTickUnit(NumberAxis axis, String str) {
+    private static void setAxisTickUnit(NumberAxis axis, String value) {
 
         try {
-            double val = Double.parseDouble(str);
+            double val = Double.parseDouble(value);
             axis.setTickUnit(val);
         }
         catch (NumberFormatException ex) {
@@ -291,65 +325,9 @@ public class Controller implements Initializable {
         setAxisUpperBound(axis, max);
     }
 
-    @SuppressWarnings("unchecked")
-    private void populateChart(List<String[]> data) {
+    private static <T, S> S uncheckedCast(T t) {
 
-        Map<Integer, XYChart.Series> seriesById = new TreeMap<>();
-
-        for(String[] line : data) {
-
-            if (line.length == 0)
-                continue;
-
-            String first = line[0];
-
-            for(int i = 1; i < line.length; ++i) {
-
-                final int j = i;
-
-                if (!line[j].equals("")) {
-                    seriesById.compute(i, (k, v) -> {
-
-                        v = v == null ? new XYChart.Series() : v;
-                        v.getData().add(new XYChart.Data(parse(first, _xAxisType), parse(line[j], _yAxisType)));
-                        return v;
-                    });
-                }
-            }
-        }
-
-        seriesById.forEach((i, series) -> {
-            _chart.getData().add(series);
-
-            HBox hbox = new HBox();
-            _seriesProperties.getItems().add(hbox);
-
-            TextField seriesName = new TextField();
-            hbox.getChildren().add(seriesName);
-            series.nameProperty().bindBidirectional(seriesName.textProperty());
-            seriesName.setText("Series " + i);
-
-            //v.getNode().setStyle(String.format("-fx-stroke: %s;", color.toString())); // set line color
-            //v.getNode().setStyle("-fx-stroke-width: 1px;");*/
-        });
-
-        final NumberAxis xAxis = (NumberAxis) _chart.getXAxis();
-        if (_xAxisAutoBounds.isSelected())
-            enableAutoRanging(xAxis);
-        else
-            disableAutoRanging(xAxis, _xAxisLowerBound.getText(), _xAxisUpperBound.getText());
-
-        final NumberAxis yAxis = (NumberAxis) _chart.getYAxis();
-        if (_yAxisAutoBounds.isSelected())
-            enableAutoRanging(yAxis);
-        else
-            disableAutoRanging(yAxis, _yAxisLowerBound.getText(), _yAxisUpperBound.getText());
-
-        _exportButton.setDisable(false);
-        setSymbolType(_chart, _symbolType.getValue());
-        setFontSize(_chart, _fontSize.getText());
-
-        _chart.setLegendVisible(_showLegend.isSelected());
+        return (S) t;
     }
 
     @FXML
@@ -402,9 +380,14 @@ public class Controller implements Initializable {
         }
     }
 
-    private LineChart _chart;
-    private Class<?> _xAxisType;
-    private Class<?> _yAxisType;
+    /**
+     * This is used to handle Double chart without messing with generic types.
+     * TODO find a better name for it.
+     * Also put more things from this class to it.
+     */
+    private LineChartDoubleDouble _chartHelper;
+
+    private LineChart<?, Double> _chart;
 
     @FXML private Pane _chartPane;
     @FXML private TextField _titleTextField;
@@ -428,7 +411,6 @@ public class Controller implements Initializable {
 
     @FXML private ComboBox<SymbolType> _symbolType;
 
-    private static final int DEFAULT_FONT_SIZE = 18;
     @FXML private TextField _fontSize;
 
 
